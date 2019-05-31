@@ -157,18 +157,13 @@ bool Menu::cumple_condiciones_peli_recomendable(Pelicula* peli_v,Pelicula* peli_
 
 void Menu::limpiar_listas(Lista<Pelicula*>* aux_lista){
     while(!(aux_lista->lista_vacia())){
-        cout<<"limpiar lista de actores"<<endl;
-        //cout<<"titulo: *** "<<aux_lista->consultar(1)->obtener_nombre()<<endl;
         delete aux_lista->consultar(1);
-        cout<<"eliminando pelicula"<<endl;
         aux_lista->eliminar(1);
     }
 }
 
 Menu::~Menu(){
-	Lista<Pelicula*>* aux_lista = peliculas_recomendadas;
-	limpiar_listas(aux_lista);
-	aux_lista = peliculas_vistas;
+	Lista<Pelicula*>* aux_lista = peliculas_vistas;
 	limpiar_listas(aux_lista);
 	aux_lista = peliculas_no_vistas;
 	limpiar_listas(aux_lista);
