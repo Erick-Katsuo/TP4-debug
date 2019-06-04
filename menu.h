@@ -96,5 +96,9 @@ class Menu{
 		//Postcondiciones: La lista de peliculas recomendadas es generada correctamente.
 		void crear_lista_de_peliculas_recomendadas();
 		
+
+		//Descripcion: Libera el contenido de las Lista(s) que contienen Pelicula(s) 
+		//Precondiciones: -.
+		//Postcondiciones: Libera la memoria usada para cada Pelicula guardada.
 		void limpiar_listas(Lista<Pelicula*>* aux_lista);
 };

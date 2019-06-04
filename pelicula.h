@@ -59,6 +59,9 @@ class Pelicula{
 		//Postcondiciones: El atributo "actores" de un objeto de clase Pelicula es devuelto correctamente.
 		Lista<string>* obtener_lista_de_actores();
 
+		//Descripcion: Destructor de la clase Pelicula. Libera la memoria usada para la Lista de "actores".  
+		//Precondiciones: -.
+		//Postcondiciones: La memoria usada para la Lista de "actores" es liberada correctamente.
 		~Pelicula();
 };
 

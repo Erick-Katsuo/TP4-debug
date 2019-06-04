@@ -36,5 +36,5 @@ Lista<string>* Pelicula::obtener_lista_de_actores(){
 
 Pelicula::~Pelicula(){
 	delete actores;
-	actores = 0;
+	//actores = 0;
 }

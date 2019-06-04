@@ -16,27 +16,20 @@ void Menu::crear_lista_de_peliculas(char const* peliculas_vistas_txt,char const*
 void Menu::leer_archivo(char const* archivo_txt, Lista<Pelicula*>* lista_de_peliculas){
 	string actor,nombre,genero,director;
 	int puntaje;
-
 	ifstream archivo(archivo_txt);
-
 	archivo >> nombre;
 	Pelicula* pelicula;
 	while(archivo >> nombre){
 		archivo >> genero;
 		archivo >> puntaje;
 		archivo >> director;
-
 		pelicula = new Pelicula(nombre,genero,director,puntaje);
-
 		while(archivo >> actor && actor != "-"){
 			pelicula->agregar_actor(actor);
 		}
-		
 		lista_de_peliculas->agregar(pelicula,lista_de_peliculas->tamanio() + 1);
 	}
-	pelicula = new Pelicula("asdasd","asdasd","asd",3);
 	archivo.close();
-	delete pelicula;
 }
 
 void Menu::interfaz(){
