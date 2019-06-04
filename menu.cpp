@@ -13,6 +13,7 @@ void Menu::crear_lista_de_peliculas(char const* peliculas_vistas_txt,char const*
 	leer_archivo(peliculas_no_vistas_txt,peliculas_no_vistas);
 }
 
+/*BORRAR - solo se cambio la declaracion del puntero a declararlo fuera del while*/
 void Menu::leer_archivo(char const* archivo_txt, Lista<Pelicula*>* lista_de_peliculas){
 	string actor,nombre,genero,director;
 	int puntaje;
@@ -148,6 +149,7 @@ bool Menu::cumple_condiciones_peli_recomendable(Pelicula* peli_v,Pelicula* peli_
 	return false;
 }
 
+/*BORRAR - libera la memoria usada para cada pelicula guardada, descrip pre post estan en el .h*/
 void Menu::limpiar_listas(Lista<Pelicula*>* aux_lista){
     while(!(aux_lista->lista_vacia())){
         delete aux_lista->consultar(1);
@@ -155,6 +157,7 @@ void Menu::limpiar_listas(Lista<Pelicula*>* aux_lista){
     }
 }
 
+/*BORRAR - se llama al metodo "limpiar_listas" para liberar la memoria de su contenido*/
 Menu::~Menu(){
 	Lista<Pelicula*>* aux_lista = peliculas_vistas;
 	limpiar_listas(aux_lista);
