@@ -34,7 +34,8 @@ Lista<string>* Pelicula::obtener_lista_de_actores(){
 	return actores;
 }
 
+
+/*BORRAR - libera la memoria de la lista para los actores*/
 Pelicula::~Pelicula(){
 	delete actores;
-	//actores = 0;
 }
