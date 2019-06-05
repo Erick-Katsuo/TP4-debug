@@ -13,7 +13,6 @@ void Menu::crear_lista_de_peliculas(char const* peliculas_vistas_txt,char const*
 	leer_archivo(peliculas_no_vistas_txt,peliculas_no_vistas);
 }
 
-/*BORRAR - solo se cambio la declaracion del puntero a declararlo fuera del while*/
 void Menu::leer_archivo(char const* archivo_txt, Lista<Pelicula*>* lista_de_peliculas){
 	string actor,nombre,genero,director;
 	int puntaje;
@@ -47,7 +46,8 @@ void Menu::interfaz(){
 		cout <<"*" << ".....Elija una de las opciones.......... " <<"*"<< endl;
 		cout <<"*" << "******************************************"<< endl << endl;
 		cin >> opcion;
-		if(opcion!=1 and opcion!=2 and opcion!=3 and opcion!=4 and opcion!=5){
+		if(opcion!=OPCION_MOSTRAR_VISTAS and opcion!=OPCION_MOSTRAR_NO_VISTAS and opcion!=OPCION_GENERAR_RECOMENDADAS
+			and opcion!=OPCION_MOSTRAR_RECOMENDADAS and opcion!=SALIR){
 			cout<<endl<<"Recuerde que las opciones validas son 1, 2, 3, 4 y 5. Intentelo nuevamente."<<endl<<endl;
 		}
 		ejecutar_opcion(opcion);
@@ -139,7 +139,7 @@ bool Menu::coinciden_actores(Pelicula* peli_v,Pelicula* peli_nv){
 }
 
 bool Menu::cumple_condiciones_peli_recomendable(Pelicula* peli_v,Pelicula* peli_nv){
-	if(peli_nv->obtener_puntaje() >= 7) return true;
+	if(peli_nv->obtener_puntaje() >= PUNTAJE_ALTO) return true;
 	else{
 
 		if(peli_v->obtener_director() == peli_nv->obtener_director() || coinciden_actores(peli_v,peli_nv)){
@@ -149,7 +149,6 @@ bool Menu::cumple_condiciones_peli_recomendable(Pelicula* peli_v,Pelicula* peli_
 	return false;
 }
 
-/*BORRAR - libera la memoria usada para cada pelicula guardada, descrip pre post estan en el .h*/
 void Menu::limpiar_listas(Lista<Pelicula*>* aux_lista){
     while(!(aux_lista->lista_vacia())){
         delete aux_lista->consultar(1);
@@ -157,7 +156,6 @@ void Menu::limpiar_listas(Lista<Pelicula*>* aux_lista){
     }
 }
 
-/*BORRAR - se llama al metodo "limpiar_listas" para liberar la memoria de su contenido*/
 Menu::~Menu(){
 	Lista<Pelicula*>* aux_lista = peliculas_vistas;
 	limpiar_listas(aux_lista);
