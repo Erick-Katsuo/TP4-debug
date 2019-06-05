@@ -7,6 +7,13 @@ using namespace std;
 #include "lista.h"
 #include "pelicula.h"
 
+int const OPCION_MOSTRAR_VISTAS = 1;
+int const OPCION_MOSTRAR_NO_VISTAS = 2;
+int const OPCION_GENERAR_RECOMENDADAS = 3;
+int const OPCION_MOSTRAR_RECOMENDADAS = 4;
+int const SALIR = 5;
+int const PUNTAJE_ALTO = 7;
+
 class Menu{
 
 	private:
@@ -95,10 +102,10 @@ class Menu{
 		//Precondiciones: Las listas de peliculas vistas y no vistas tienen, al menos, una pelicula cada una.
 		//Postcondiciones: La lista de peliculas recomendadas es generada correctamente.
 		void crear_lista_de_peliculas_recomendadas();
-		
 
-		//Descripcion: Libera el contenido de las Lista(s) que contienen Pelicula(s) 
+		//Descripcion: Libera el contenido de las Lista(s) que contienen Pelicula(s). 
 		//Precondiciones: -.
 		//Postcondiciones: Libera la memoria usada para cada Pelicula guardada.
 		void limpiar_listas(Lista<Pelicula*>* aux_lista);
+
 };
